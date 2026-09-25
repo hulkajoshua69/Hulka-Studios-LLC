@@ -9,10 +9,10 @@
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap');
 
         :root {
-            --bg-color: #050505; /* Deep, atmospheric black */
-            --text-main: #eaeaea; /* Ash white */
-            --text-muted: #888888; /* Weathered grey */
-            --accent: #7a1010; /* Industrial rust/crimson */
+            --bg-color: #050505;
+            --text-main: #eaeaea;
+            --text-muted: #888888;
+            --accent: #7a1010;
             --card-bg: #111111;
         }
 
@@ -31,7 +31,7 @@
         }
 
         h1, h2, h3, h4 {
-            font-family: 'Cinzel', serif; /* Cinematic, elegant, slightly gothic */
+            font-family: 'Cinzel', serif;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
@@ -49,23 +49,10 @@
             z-index: 100;
         }
 
-        .logo { 
-            font-size: 1.5rem; 
-            font-weight: 700; 
-            letter-spacing: 4px; 
-        }
+        .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: 4px; }
+        .logo span { color: var(--accent); }
         
-        .logo span { 
-            color: var(--accent); 
-        }
-        
-        nav ul { 
-            list-style: none; 
-            display: flex; 
-            gap: 2rem; 
-            flex-wrap: wrap; /* Helps on smaller screens */
-        }
-        
+        nav ul { list-style: none; display: flex; gap: 2rem; }
         nav a { 
             color: var(--text-main); 
             text-decoration: none; 
@@ -74,10 +61,7 @@
             letter-spacing: 1.5px; 
             transition: color 0.3s; 
         }
-        
-        nav a:hover { 
-            color: var(--accent); 
-        }
+        nav a:hover { color: var(--accent); }
 
         /* HERO SECTION */
         header {
@@ -88,23 +72,11 @@
             align-items: center;
             text-align: center;
             padding: 0 20px;
-            /* Placeholder for a moody, heavy-grain background image */
-            background: linear-gradient(to bottom, rgba(5,5,5,0.6), var(--bg-color)), url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop') center/cover;
+            background: linear-gradient(to bottom, rgba(5,5,5,0.7), var(--bg-color)), url('/api/placeholder/1920/1080') center/cover;
         }
 
-        header h1 { 
-            font-size: clamp(2.5rem, 5vw, 4rem); 
-            margin-bottom: 1rem; 
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
-        }
-        
-        header p { 
-            font-size: 1.1rem; 
-            color: var(--text-muted); 
-            max-width: 650px; 
-            margin-bottom: 2.5rem; 
-            font-weight: 300;
-        }
+        header h1 { font-size: 4rem; margin-bottom: 1rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
+        header p { font-size: 1.1rem; color: var(--text-muted); max-width: 650px; margin-bottom: 2.5rem; font-weight: 300; }
         
         .btn {
             padding: 14px 36px;
@@ -118,192 +90,130 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
         .btn:hover { 
             border-color: var(--accent);
             background: rgba(122, 16, 16, 0.1); 
             color: var(--accent);
         }
 
-        /* SHARED SECTIONS & GRID */
-        section { 
-            padding: 6rem 5%; 
-        }
-        
-        .section-title { 
-            text-align: center; 
-            font-size: 2.5rem; 
-            margin-bottom: 4rem; 
-        }
-        
-        .section-title span { 
-            color: var(--accent); 
-        }
+        /* SECTION TITLES */
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 4rem; }
+        .section-title span { color: var(--accent); }
 
-        .grid-container {
+        /* SERVICES SECTION */
+        #services { padding: 6rem 5%; }
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             max-width: 1400px;
             margin: 0 auto;
         }
-
-        .card {
+        .service-card {
             background: var(--card-bg);
             padding: 2.5rem;
             border: 1px solid #1a1a1a;
             transition: transform 0.4s ease, border-color 0.4s ease;
-            display: flex;
-            flex-direction: column;
         }
+        .service-card:hover { transform: translateY(-8px); border-color: var(--accent); }
+        .service-card h3 { font-size: 1.2rem; margin-bottom: 1rem; border-bottom: 1px solid #222; padding-bottom: 0.75rem; }
+        .service-card p { color: var(--text-muted); font-size: 0.95rem; font-weight: 300; }
 
-        .card:hover {
-            transform: translateY(-8px);
+        /* PORTFOLIO (VIDEO VAULT) SECTION */
+        #portfolio { padding: 4rem 5% 6rem; }
+        .video-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 1rem;
+            border: 1px solid #1a1a1a;
+            border-radius: 4px;
+            transition: border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+        .video-wrapper:hover {
             border-color: var(--accent);
+            box-shadow: 0 0 25px rgba(122, 16, 16, 0.15);
         }
-
-        .card h3 { 
-            font-size: 1.2rem; 
-            margin-bottom: 1rem; 
-            border-bottom: 1px solid #222; 
-            padding-bottom: 0.75rem; 
-        }
-        
-        .card p { 
-            color: var(--text-muted); 
-            font-size: 0.95rem; 
-            font-weight: 300;
-        }
-
-        /* MARQUEE CLIENTS STYLES */
-        #clients {
-            padding: 6rem 0; /* Override default section padding for full bleed */
-        }
-
-        #clients .section-title {
-            padding: 0 5%;
-        }
-
-        .marquee-container {
-            position: relative;
+        .video-wrapper video {
             width: 100%;
-            overflow: hidden;
-            background: rgba(17, 17, 17, 0.4); /* Translucent backdrop */
+            height: auto;
+            border-radius: 2px;
+            display: block;
+            outline: none;
+            background-color: #000;
+        }
+        .video-caption {
+            text-align: center;
+            margin-top: 1.25rem;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* CLIENTS MARQUEE SECTION */
+        #clients { padding: 4rem 0 6rem; overflow: hidden; }
+        .marquee-container {
+            width: 100%;
+            background: #080808;
             border-top: 1px solid #1a1a1a;
             border-bottom: 1px solid #1a1a1a;
-            backdrop-filter: blur(8px);
-            padding: 4rem 0;
-            margin-top: 2rem;
+            padding: 2.5rem 0;
+            display: flex;
         }
-
-        /* Cinematic fade edges for the marquee */
-        .marquee-container::before,
-        .marquee-container::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 15vw;
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        .marquee-container::before {
-            left: 0;
-            background: linear-gradient(to right, var(--bg-color), transparent);
-        }
-
-        .marquee-container::after {
-            right: 0;
-            background: linear-gradient(to left, var(--bg-color), transparent);
-        }
-
         .marquee-track {
             display: flex;
-            width: max-content;
-            animation: scrollMarquee 35s linear infinite;
+            width: fit-content;
+            animation: marquee 25s linear infinite;
         }
-
-        /* Pause the scroll on hover for readability */
-        .marquee-track:hover {
-            animation-play-state: paused;
-        }
-
-        .marquee-group {
+        .marquee-items {
             display: flex;
             align-items: center;
-            gap: 6rem;
-            padding-right: 6rem; /* Ensures seamless looping gap */
+            gap: 5rem;
+            padding-right: 5rem; /* Matches gap for a seamless loop */
+        }
+        
+        .marquee-items img {
+            height: 65px;
+            object-fit: contain;
+            filter: grayscale(100%) opacity(0.5);
+            transition: filter 0.4s ease, transform 0.4s ease;
+            cursor: pointer;
+        }
+        
+        /* Optional fix for logos with stark white backgrounds */
+        .white-bg-logo {
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 10px;
+            border-radius: 4px;
         }
 
-        @keyframes scrollMarquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); } /* Moves exactly one group width */
-        }
-
-        .client-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            white-space: nowrap;
-            transition: transform 0.4s ease, filter 0.4s ease;
-            filter: grayscale(100%) opacity(0.6);
-            cursor: default;
-        }
-
-        .client-item:hover {
-            transform: scale(1.05);
+        .marquee-items img:hover {
             filter: grayscale(0%) opacity(1);
+            transform: scale(1.05);
         }
-
-        .client-item h4 {
+        
+        .client-text {
+            font-family: 'Cinzel', serif;
             font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            opacity: 0.6;
+            transition: color 0.4s ease, transform 0.4s ease, opacity 0.4s ease;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .client-text:hover {
             color: var(--text-main);
-            letter-spacing: 4px;
-            margin-bottom: 0.3rem;
-            text-shadow: 0 0 10px rgba(255,255,255,0.1);
+            opacity: 1;
+            transform: scale(1.05);
+            text-shadow: 0 0 10px rgba(122, 16, 16, 0.6);
         }
 
-        .client-item p {
-            font-size: 0.8rem;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 600;
-        }
-
-        .marquee-logo {
-            background: #ffffff;
-            height: 65px;
-            padding: 0.5rem 1.5rem;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
-        }
-
-        .marquee-logo img {
-            height: 100%;
-            width: auto;
-            object-fit: contain;
-        }
-
-        .raw-logo {
-            height: 65px;
-            width: auto;
-            object-fit: contain;
-            border-radius: 4px;
-        }
-
-        .stylized-text h4 {
-            transition: color 0.4s ease, text-shadow 0.4s ease;
-        }
-
-        .stylized-text:hover h4 {
-            color: var(--accent);
-            text-shadow: 0 0 15px rgba(122, 16, 16, 0.4);
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
         /* FOOTER */
@@ -311,18 +221,9 @@
             text-align: center; 
             padding: 3rem 5%; 
             border-top: 1px solid #1a1a1a; 
-            margin-top: 2rem; 
             font-size: 0.8rem; 
             color: var(--text-muted); 
             letter-spacing: 1px;
-        }
-        
-        /* Media Queries for better mobile responsiveness */
-        @media (max-width: 768px) {
-            nav { flex-direction: column; gap: 1rem; }
-            nav ul { justify-content: center; }
-            .section-title { font-size: 2rem; }
-            section { padding: 4rem 5%; }
         }
     </style>
 </head>
@@ -332,9 +233,8 @@
         <div class="logo">Hulka <span>Studios</span></div>
         <ul>
             <li><a href="#services">Services</a></li>
-            <li><a href="#clients">Clients</a></li>
             <li><a href="#portfolio">Work</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#clients">Clients</a></li>
         </ul>
     </nav>
 
@@ -346,90 +246,67 @@
 
     <section id="services">
         <h2 class="section-title">Creative <span>&</span> Technical Services</h2>
-        
-        <div class="grid-container">
-            <!-- Video & Photo -->
-            <div class="card">
+        <div class="services-grid">
+            <div class="service-card">
                 <h3>Photography & Videography</h3>
                 <p>Cinematic visuals, dynamic media shoots, and professional color grading tailored for a dark, moody aesthetic. From raw LOG video capture to final Lightroom and Premiere Pro polish.</p>
             </div>
-            
-            <!-- Audio -->
-            <div class="card">
+            <div class="service-card">
                 <h3>Audio Production & Mixing</h3>
                 <p>Heavy, progressive, and atmospheric sound design. Offering multitrack engineering, VST routing, and complete audio mixing workflows for artists and creators.</p>
             </div>
-            
-            <!-- Layout & Web -->
-            <div class="card">
+            <div class="service-card">
                 <h3>Web & Layout Design</h3>
                 <p>Modern, sleek, and responsive layout design. Creating bold digital storefronts, custom portfolios, and cohesive brand identities that stand out.</p>
             </div>
-            
-            <!-- IT/Automation -->
-            <div class="card">
+            <div class="service-card">
                 <h3>Technical Consulting & Automation</h3>
                 <p>Technical architecture isn't just for art. Providing custom scripting, diagnostic tooling, and robust infrastructure solutions to streamline digital operations.</p>
             </div>
         </div>
     </section>
 
+    <section id="portfolio">
+        <h2 class="section-title">Featured <span>Work</span></h2>
+        
+        <div class="video-wrapper">
+            <video controls preload="metadata">
+                <source src="Zach McConnell Warwick Announcement.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-caption">
+                Cloud9 Vibes — Zach McConnell Warwick Bass Sponsorship Promo
+            </div>
+        </div>
+    </section>
+
     <section id="clients">
         <h2 class="section-title">Selected <span>Clients</span></h2>
-        
         <div class="marquee-container">
             <div class="marquee-track">
-                <!-- Group 1 -->
-                <div class="marquee-group">
-                    <div class="client-item">
-                        <div class="marquee-logo">
-                            <img src="image_e3a69b.png" alt="Moore Solutions, Inc. Logo">
-                        </div>
-                    </div>
-                    <div class="client-item">
-                        <img src="c9v.png" alt="Cloud9 Vibes Logo" class="raw-logo">
-                    </div>
-                    <div class="client-item">
-                        <div class="marquee-logo">
-                            <img src="warwick.png" alt="Warwick Logo">
-                        </div>
-                    </div>
-                    <div class="client-item">
-                        <img src="donefor.png" alt="DONEFOR Logo" class="raw-logo">
-                    </div>
-                    <div class="client-item stylized-text">
-                        <h4>LyrianXR</h4>
-                    </div>
-                    <div class="client-item stylized-text">
-                        <h4>Bianca Jazmine</h4>
-                    </div>
-                </div>
                 
-                <!-- Group 2 (Duplicated exactly for seamless scrolling) -->
-                <div class="marquee-group" aria-hidden="true">
-                    <div class="client-item">
-                        <div class="marquee-logo">
-                            <img src="msi.png" alt="Moore Solutions, Inc. Logo">
-                        </div>
-                    </div>
-                    <div class="client-item">
-                        <img src="c9v.png" alt="Cloud9 Vibes Logo" class="raw-logo">
-                    </div>
-                    <div class="client-item">
-                        <div class="marquee-logo">
-                            <img src="warwick.png" alt="Warwick Logo">
-                        </div>
-                    </div>
-                    <div class="client-item">
-                        <img src="donefor.png" alt="DONEFOR Logo" class="raw-logo">
-                    </div>
-                    <div class="client-item stylized-text">
-                        <h4>LyrianXR</h4>
-                    </div>
-                    <div class="client-item stylized-text">
-                        <h4>Bianca Jazmine</h4>
-                    </div>
+                <div class="marquee-items">
+                    <img src="msi.png" alt="Moore Solutions, Inc." class="white-bg-logo">
+                    
+                    <img src="c9v.png" alt="Cloud9 Vibes">
+                    <img src="warwick.png" alt="Warwick">
+                    <img src="donefor.png" alt="DONEFOR">
+                    
+                    <span class="client-text">LyrianXR</span>
+                    <span class="client-text">Bianca Jazmine</span>
                 </div>
+
+                <div class="marquee-items" aria-hidden="true">
+                    <img src="image_e3a69b.png" alt="Moore Solutions, Inc." class="white-bg-logo">
+                    
+                    <img src="c9v.png" alt="Cloud9 Vibes">
+                    <img src="warwick.png" alt="Warwick">
+                    <img src="donefor.png" alt="DONEFOR">
+                    
+                    <span class="client-text">LyrianXR</span>
+                    <span class="client-text">Bianca Jazmine</span>
+                </div>
+
             </div>
         </div>
     </section>
