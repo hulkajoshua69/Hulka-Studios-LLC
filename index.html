@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hulka Studios LLC</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23050505'/><rect x='25' y='20' width='12' height='60' fill='%23eaeaea'/><rect x='63' y='20' width='12' height='60' fill='%23eaeaea'/><polygon points='37,45 63,45 63,55 37,55' fill='%237a1010'/></svg>">
     <style>
         /* Importing Google Fonts */
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap');
@@ -63,47 +64,18 @@
         }
         nav a:hover { color: var(--accent); }
 
-        /* HERO SECTION WITH VIDEO BACKGROUND */
+        /* HERO SECTION */
         header {
             height: 85vh;
-            position: relative;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             padding: 0 20px;
-            overflow: hidden;
-            background-color: var(--bg-color); 
-        }
-
-        .hero-video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translateX(-50%) translateY(-50%);
-            object-fit: cover;
-            z-index: 0;
-            filter: grayscale(80%) contrast(120%); 
-        }
-
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(5,5,5,0.6), var(--bg-color));
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2; 
+            /* Dark, cinematic background with a heavy gradient overlay for text readability */
+            background: linear-gradient(to bottom, rgba(5,5,5,0.8), var(--bg-color)), 
+            url('https://images.unsplash.com/photo-1557672172-298e090bd0f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
         }
 
         header h1 { font-size: 4rem; margin-bottom: 1rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
@@ -302,15 +274,9 @@
     </nav>
 
     <header>
-        <div class="video-overlay"></div>
-        <video autoplay loop muted playsinline class="hero-video">
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-ink-swirling-in-water-dark-background-2226-large.mp4" type="video/mp4">
-        </video>
-        <div class="hero-content">
-            <h1>Sonic & Visual Artistry</h1>
-            <p>Industrial aesthetic. Cinematic execution. Professional solutions bridging the gap between raw creativity and technical precision.</p>
-            <button class="btn" onclick="document.getElementById('portfolio').scrollIntoView({behavior: 'smooth'})">View The Vault</button>
-        </div>
+        <h1>Sonic & Visual Artistry</h1>
+        <p>Industrial aesthetic. Cinematic execution. Professional solutions bridging the gap between raw creativity and technical precision.</p>
+        <button class="btn" onclick="document.getElementById('portfolio').scrollIntoView({behavior: 'smooth'})">View The Vault</button>
     </header>
 
     <section id="services">
