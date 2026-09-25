@@ -175,24 +175,135 @@
             font-weight: 300;
         }
 
-        /* CLIENTS SPECIFIC STYLES */
-        .client-logo-container {
-            background-color: #ffffff; /* Crisp white to handle the logo's native background */
-            padding: 1.5rem;
-            border-radius: 4px;
-            border: 1px solid #333333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            height: 120px; /* Fixed height for uniformity if you add more clients */
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+        /* MARQUEE CLIENTS STYLES */
+        #clients {
+            padding: 6rem 0; /* Override default section padding for full bleed */
         }
 
-        .client-logo-container img {
-            max-width: 100%;
-            max-height: 100%;
+        #clients .section-title {
+            padding: 0 5%;
+        }
+
+        .marquee-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            background: rgba(17, 17, 17, 0.4); /* Translucent backdrop */
+            border-top: 1px solid #1a1a1a;
+            border-bottom: 1px solid #1a1a1a;
+            backdrop-filter: blur(8px);
+            padding: 4rem 0;
+            margin-top: 2rem;
+        }
+
+        /* Cinematic fade edges for the marquee */
+        .marquee-container::before,
+        .marquee-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 15vw;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .marquee-container::before {
+            left: 0;
+            background: linear-gradient(to right, var(--bg-color), transparent);
+        }
+
+        .marquee-container::after {
+            right: 0;
+            background: linear-gradient(to left, var(--bg-color), transparent);
+        }
+
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: scrollMarquee 35s linear infinite;
+        }
+
+        /* Pause the scroll on hover for readability */
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        .marquee-group {
+            display: flex;
+            align-items: center;
+            gap: 6rem;
+            padding-right: 6rem; /* Ensures seamless looping gap */
+        }
+
+        @keyframes scrollMarquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } /* Moves exactly one group width */
+        }
+
+        .client-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+            transition: transform 0.4s ease, filter 0.4s ease;
+            filter: grayscale(100%) opacity(0.6);
+            cursor: default;
+        }
+
+        .client-item:hover {
+            transform: scale(1.05);
+            filter: grayscale(0%) opacity(1);
+        }
+
+        .client-item h4 {
+            font-size: 1.8rem;
+            color: var(--text-main);
+            letter-spacing: 4px;
+            margin-bottom: 0.3rem;
+            text-shadow: 0 0 10px rgba(255,255,255,0.1);
+        }
+
+        .client-item p {
+            font-size: 0.8rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .marquee-logo {
+            background: #ffffff;
+            height: 65px;
+            padding: 0.5rem 1.5rem;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        .marquee-logo img {
+            height: 100%;
+            width: auto;
             object-fit: contain;
+        }
+
+        .raw-logo {
+            height: 65px;
+            width: auto;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+
+        .stylized-text h4 {
+            transition: color 0.4s ease, text-shadow 0.4s ease;
+        }
+
+        .stylized-text:hover h4 {
+            color: var(--accent);
+            text-shadow: 0 0 15px rgba(122, 16, 16, 0.4);
         }
 
         /* FOOTER */
@@ -266,26 +377,60 @@
     <section id="clients">
         <h2 class="section-title">Selected <span>Clients</span></h2>
         
-        <div class="grid-container">
-            <!-- Moore Solutions, Inc. -->
-            <div class="card">
-                <div class="client-logo-container">
-                    <img src="msi.png" alt="Moore Solutions, Inc. Logo">
+        <div class="marquee-container">
+            <div class="marquee-track">
+                <!-- Group 1 -->
+                <div class="marquee-group">
+                    <div class="client-item">
+                        <div class="marquee-logo">
+                            <img src="image_e3a69b.png" alt="Moore Solutions, Inc. Logo">
+                        </div>
+                    </div>
+                    <div class="client-item">
+                        <img src="c9v.png" alt="Cloud9 Vibes Logo" class="raw-logo">
+                    </div>
+                    <div class="client-item">
+                        <div class="marquee-logo">
+                            <img src="warwick.png" alt="Warwick Logo">
+                        </div>
+                    </div>
+                    <div class="client-item">
+                        <img src="donefor.png" alt="DONEFOR Logo" class="raw-logo">
+                    </div>
+                    <div class="client-item stylized-text">
+                        <h4>LyrianXR</h4>
+                    </div>
+                    <div class="client-item stylized-text">
+                        <h4>Bianca Jazmine</h4>
+                    </div>
                 </div>
-                <h3>Moore Solutions, Inc.</h3>
-                <p>Contracted Layout Designer. Specialized in developing course layouts, modifying HTML templates, and performing detailed image editing.</p>
-            </div>
-            
-            <!-- Placeholder for future clients to maintain grid balance if desired -->
-            <!-- 
-            <div class="card">
-                <div class="client-logo-container">
-                    <span style="color: var(--text-muted); font-size: 0.8rem; letter-spacing: 2px;">PROJECT CLASSIFIED</span>
+                
+                <!-- Group 2 (Duplicated exactly for seamless scrolling) -->
+                <div class="marquee-group" aria-hidden="true">
+                    <div class="client-item">
+                        <div class="marquee-logo">
+                            <img src="msi.png" alt="Moore Solutions, Inc. Logo">
+                        </div>
+                    </div>
+                    <div class="client-item">
+                        <img src="c9v.png" alt="Cloud9 Vibes Logo" class="raw-logo">
+                    </div>
+                    <div class="client-item">
+                        <div class="marquee-logo">
+                            <img src="warwick.png" alt="Warwick Logo">
+                        </div>
+                    </div>
+                    <div class="client-item">
+                        <img src="donefor.png" alt="DONEFOR Logo" class="raw-logo">
+                    </div>
+                    <div class="client-item stylized-text">
+                        <h4>LyrianXR</h4>
+                    </div>
+                    <div class="client-item stylized-text">
+                        <h4>Bianca Jazmine</h4>
+                    </div>
                 </div>
-                <h3>Future Partner</h3>
-                <p>Space reserved for upcoming collaborations and technical integrations.</p>
             </div>
-            -->
         </div>
     </section>
 
