@@ -119,11 +119,17 @@
         .service-card h3 { font-size: 1.2rem; margin-bottom: 1rem; border-bottom: 1px solid #222; padding-bottom: 0.75rem; }
         .service-card p { color: var(--text-muted); font-size: 0.95rem; font-weight: 300; }
 
-        /* PORTFOLIO (VIDEO VAULT) SECTION */
+        /* PORTFOLIO GRID & VIDEOS */
         #portfolio { padding: 4rem 5% 6rem; }
-        .video-wrapper {
-            max-width: 900px;
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
             margin: 0 auto;
+            align-items: start;
+        }
+        .video-wrapper {
             background: var(--card-bg);
             padding: 1.5rem;
             border: 1px solid #1a1a1a;
@@ -133,6 +139,22 @@
         .video-wrapper:hover {
             border-color: var(--accent);
             box-shadow: 0 0 25px rgba(122, 16, 16, 0.15);
+        }
+
+        /* STANDARD 16:9 VIDEO EMBED */
+        .iframe-container.standard-format {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+        }
+        .iframe-container.standard-format iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 4px;
         }
 
         /* SHORTS/VERTICAL VIDEO EMBED */
@@ -280,20 +302,41 @@
     <section id="portfolio">
         <h2 class="section-title">Featured <span>Work</span></h2>
         
-        <div class="video-wrapper">
-            <div class="iframe-container shorts-format">
-                <!-- YouTube Shorts Embed -->
-                <iframe 
-                    src="https://www.youtube.com/embed/x39l8Xw-r8s" 
-                    title="Warwick Bass Sponsorship Promo" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowfullscreen>
-                </iframe>
+        <div class="portfolio-grid">
+            
+            <!-- Video 1: Warwick Promo (Vertical) -->
+            <div class="video-wrapper">
+                <div class="iframe-container shorts-format">
+                    <iframe 
+                        src="https://www.youtube.com/embed/x39l8Xw-r8s" 
+                        title="Warwick Bass Sponsorship Promo" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-caption">
+                    Cloud9 Vibes — Zach McConnell Warwick Bass Sponsorship Promo
+                </div>
             </div>
-            <div class="video-caption">
-                Cloud9 Vibes — Zach McConnell Warwick Bass Sponsorship Promo
+
+            <!-- Video 2: Bianca Jazmine (Widescreen) -->
+            <div class="video-wrapper">
+                <div class="iframe-container standard-format">
+                    <iframe 
+                        src="https://www.youtube.com/embed/CT4SiZvqctk?si=Jnq6ru9Rp7sBWu7a&amp;controls=0" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-caption">
+                    Bianca Jazmine — Audio Production & Media (Rain Cat Recording Studio)
+                </div>
             </div>
+
         </div>
     </section>
 
@@ -305,7 +348,7 @@
                 
                 <!-- Set 1 (Original) -->
                 <div class="marquee-items">
-                    <img src="image_e3a69b.png" alt="Moore Solutions, Inc." class="white-bg-logo">
+                    <img src="msi.png" alt="Moore Solutions, Inc." class="white-bg-logo">
                     <img src="c9v.png" alt="Cloud9 Vibes">
                     <img src="warwick.png" alt="Warwick" class="white-bg-logo">
                     <img src="donefor.png" alt="DONEFOR">
