@@ -125,7 +125,7 @@
             max-width: 900px;
             margin: 0 auto;
             background: var(--card-bg);
-            padding: 1rem;
+            padding: 1.5rem;
             border: 1px solid #1a1a1a;
             border-radius: 4px;
             transition: border-color 0.4s ease, box-shadow 0.4s ease;
@@ -134,17 +134,27 @@
             border-color: var(--accent);
             box-shadow: 0 0 25px rgba(122, 16, 16, 0.15);
         }
-        .video-wrapper video {
+
+        /* SHORTS/VERTICAL VIDEO EMBED */
+        .iframe-container.shorts-format {
+            position: relative;
             width: 100%;
-            height: auto;
-            border-radius: 2px;
-            display: block;
-            outline: none;
-            background-color: #000;
+            max-width: 360px; /* Constrains the width on desktop */
+            margin: 0 auto; 
+            aspect-ratio: 9 / 16;
         }
+        .iframe-container.shorts-format iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 4px;
+        }
+
         .video-caption {
             text-align: center;
-            margin-top: 1.25rem;
+            margin-top: 1.5rem;
             font-family: 'Inter', sans-serif;
             color: var(--text-muted);
             font-size: 0.85rem;
@@ -182,7 +192,7 @@
             cursor: pointer;
         }
         
-        /* Optional fix for logos with stark white backgrounds */
+        /* White background wrapper for stark black/dark logos */
         .white-bg-logo {
             background-color: rgba(255, 255, 255, 0.85);
             padding: 10px;
@@ -241,7 +251,7 @@
     <header>
         <h1>Sonic & Visual Artistry</h1>
         <p>Industrial aesthetic. Cinematic execution. Professional solutions bridging the gap between raw creativity and technical precision.</p>
-        <button class="btn">View The Vault</button>
+        <button class="btn" onclick="document.getElementById('portfolio').scrollIntoView({behavior: 'smooth'})">View The Vault</button>
     </header>
 
     <section id="services">
@@ -266,41 +276,49 @@
         </div>
     </section>
 
+    <!-- PORTFOLIO SECTION -->
     <section id="portfolio">
         <h2 class="section-title">Featured <span>Work</span></h2>
         
         <div class="video-wrapper">
-            <video controls preload="metadata">
-                <source src="Zach McConnell Warwick Announcement.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            <div class="iframe-container shorts-format">
+                <!-- YouTube Shorts Embed -->
+                <iframe 
+                    src="https://www.youtube.com/embed/x39l8Xw-r8s" 
+                    title="Warwick Bass Sponsorship Promo" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                </iframe>
+            </div>
             <div class="video-caption">
                 Cloud9 Vibes — Zach McConnell Warwick Bass Sponsorship Promo
             </div>
         </div>
     </section>
 
+    <!-- CLIENTS SECTION -->
     <section id="clients">
         <h2 class="section-title">Selected <span>Clients</span></h2>
         <div class="marquee-container">
             <div class="marquee-track">
                 
+                <!-- Set 1 (Original) -->
                 <div class="marquee-items">
-                    <img src="msi.png" alt="Moore Solutions, Inc." class="white-bg-logo">
-                    
+                    <img src="image_e3a69b.png" alt="Moore Solutions, Inc." class="white-bg-logo">
                     <img src="c9v.png" alt="Cloud9 Vibes">
-                    <img src="warwick.png" alt="Warwick">
+                    <img src="warwick.png" alt="Warwick" class="white-bg-logo">
                     <img src="donefor.png" alt="DONEFOR">
                     
                     <span class="client-text">LyrianXR</span>
                     <span class="client-text">Bianca Jazmine</span>
                 </div>
 
+                <!-- Set 2 (Duplicate for Seamless Infinite Scroll) -->
                 <div class="marquee-items" aria-hidden="true">
-                    <img src="image_e3a69b.png" alt="Moore Solutions, Inc." class="white-bg-logo">
-                    
+                    <img src="msi.png" alt="Moore Solutions, Inc." class="white-bg-logo">
                     <img src="c9v.png" alt="Cloud9 Vibes">
-                    <img src="warwick.png" alt="Warwick">
+                    <img src="warwick.png" alt="Warwick" class="white-bg-logo">
                     <img src="donefor.png" alt="DONEFOR">
                     
                     <span class="client-text">LyrianXR</span>
